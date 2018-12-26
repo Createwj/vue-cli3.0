@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <!--<img alt="Vue logo" src="../assets/logo.png">-->
+    <HelloWorld @addItem="addItem" msg="Welcome" mes="TypeScript"/>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Provide, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 @Component({
@@ -14,5 +14,11 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
     HelloWorld,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+    addItem (e) {
+        console.log(e)
+    }
+    @Provide() foo = 'foo'
+    @Provide('bar') baz = 'bar'
+}
 </script>
