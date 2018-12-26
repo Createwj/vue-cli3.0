@@ -4,7 +4,7 @@
     <h1>{{ mes }}</h1>
     <h1 @click="addItem">派发{{ computedMsg }}</h1>
     <h2 @click="popWindow">{{isNumber}}</h2>
-
+    <input type="text" v-model="">
     <p>{{bar}}</p>
     <p>{{foo}}</p>
   </div>
@@ -36,6 +36,7 @@ export default class HelloWorld extends Vue {
    * 声明变量
    * **/
   isNumber:string = '123'
+  isString:string = ''
 
   /**
    * 监听变化
