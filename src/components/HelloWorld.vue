@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h1>{{ mes }}</h1>
+    <h1>{{ mes | capitalize}}</h1>
     <h1 @click="addItem">派发{{ computedMsg }}</h1>
     <h2 @click="popWindow">{{isNumber}}</h2>
     <p>{{bar}}</p>
@@ -18,6 +18,15 @@ import { Component, Provide, Inject, Emit, Watch, Prop, Vue } from 'vue-property
    * **/
   components: {
   },
+  /**
+   * 过滤器
+   * **/
+  filters: {
+      capitalize: function(e){
+          console.log('过滤器')
+            return e
+        }
+  }
 })
 export default class HelloWorld extends Vue {
    @Inject () foo!:string
@@ -35,6 +44,10 @@ export default class HelloWorld extends Vue {
    * 声明变量
    * **/
   isNumber:any = '123'
+
+
+
+
 
   /**
    * 监听变化
