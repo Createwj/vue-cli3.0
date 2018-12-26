@@ -45,10 +45,6 @@ export default class HelloWorld extends Vue {
    * **/
   isNumber:any = '123'
 
-
-
-
-
   /**
    * 监听变化
    * **/
