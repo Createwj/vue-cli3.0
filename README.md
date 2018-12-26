@@ -44,3 +44,5 @@ vue property decorator 深度依赖了 vue class component 拓展出了很多操
 ```
 子组件中使用@Inject来使用变量(不论子组件都多深)
 
+
+linux部署 githook 进行本地代码自动化部署
