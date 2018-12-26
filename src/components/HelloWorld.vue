@@ -4,14 +4,13 @@
     <h1>{{ mes }}</h1>
     <h1 @click="addItem">派发{{ computedMsg }}</h1>
     <h2 @click="popWindow">{{isNumber}}</h2>
-    <input type="text" v-model="">
     <p>{{bar}}</p>
     <p>{{foo}}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Inject, Emit, Watch, Prop, Vue } from 'vue-property-decorator';
+import { Component, Provide, Inject, Emit, Watch, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   /**
@@ -35,8 +34,7 @@ export default class HelloWorld extends Vue {
   /**
    * 声明变量
    * **/
-  isNumber:string = '123'
-  isString:string = ''
+  isNumber:any = '123'
 
   /**
    * 监听变化

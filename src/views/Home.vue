@@ -15,10 +15,10 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
   },
 })
 export default class Home extends Vue {
-    addItem (e) {
-        console.log(e)
-    }
-    @Provide() foo = 'foo'
-    @Provide('bar') baz = 'bar'
+  @Provide() foo = 'foo'
+  @Provide('bar') baz = 'bar'
+  addItem (e:any) {
+      console.log(e)
+  }
 }
 </script>
