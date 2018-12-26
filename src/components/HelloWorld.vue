@@ -6,12 +6,14 @@
     <h2 @click="popWindow">{{isNumber}}</h2>
     <p>{{bar}}</p>
     <p>{{foo}}</p>
+
+    <p>{{doneTodos}}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Provide, Inject, Emit, Watch, Prop, Vue } from 'vue-property-decorator';
-
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 @Component({
   /**
    * 声明调用的组件
@@ -24,9 +26,36 @@ import { Component, Provide, Inject, Emit, Watch, Prop, Vue } from 'vue-property
   filters: {
       capitalize: function(e){
           console.log('过滤器')
-            return e
-        }
+          return e
+      }
+  },
+  computed:{
+    ...mapGetters([
+      'doneTodos'
+    ])
+  },
+  methods: {
+    // mapmutations
+    // ...mapMutations([
+    //   'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
+    // ]),
+    // ...mapMutations({
+    //   add: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+    // })
+
+
+    // action
+    //   ...mapActions([
+    //   'increment', // 将 `this.increment()` 映射为 `this.$store.dispatch('increment')`
+    //
+    //   // `mapActions` 也支持载荷：
+    //   'incrementBy' // 将 `this.incrementBy(amount)` 映射为 `this.$store.dispatch('incrementBy', amount)`
+    // ]),
+    // ...mapActions({
+    //   add: 'increment' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
+    // })
   }
+
 })
 export default class HelloWorld extends Vue {
    @Inject () foo!:string
