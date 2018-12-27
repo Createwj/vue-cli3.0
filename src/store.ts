@@ -7,24 +7,24 @@ export default new Vuex.Store({
   state: {
     todos: [
       { id: 1, text: '...', done: true },
-      { id: 2, text: '...', done: false }
+      { id: 2, text: '...', done: false },
     ],
-    count: 1
+    count: 1,
   },
   getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    }
+    doneTodos: (state) => {
+      return state.todos.filter((todo) => todo.done);
+    },
   },
   mutations: {
-    increment (state) {
+    increment(state) {
       // 变更状态
-      state.count++
-    }
+      state.count++;
+    },
   },
   actions: {
-    increment (context) {
-      context.commit('increment')  // 执行一个 state.count++ 的动作
-    }
+    increment(context) {
+      context.commit('increment');  // 执行一个 state.count++ 的动作
+    },
   },
 });

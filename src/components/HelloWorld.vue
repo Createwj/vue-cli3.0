@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Component, Provide, Inject, Emit, Watch, Prop, Vue } from 'vue-property-decorator';
-import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 @Component({
   /**
    * 声明调用的组件
@@ -29,10 +29,10 @@ import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
       //     return e
       // }
   },
-  computed:{
+  computed: {
     ...mapGetters([
-      'doneTodos'
-    ])
+      'doneTodos',
+    ]),
   },
   methods: {
     // mapmutations
@@ -54,12 +54,24 @@ import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
     // ...mapActions({
     //   add: 'increment' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
     // })
-  }
+  },
 
 })
 export default class HelloWorld extends Vue {
-   @Inject () foo!:string
-   @Inject () bar!:string // 接受父组件 传递的参数 提升的组件之间的耦合性  并非良策s
+
+  /**
+   * 计算属性
+   * **/
+  get computedMsg() {
+    return '计算属性 ' + this.msg;
+  }
+   @Inject () public foo!: string;
+   @Inject () public bar!: string; // 接受父组件 传递的参数 提升的组件之间的耦合性  并非良策s
+
+  /**
+   * 声明变量
+   * **/
+  public isNumber: any = '123';   // data使用ts声明数据类型
 
   /**
    *   接受父组件传递的参数
@@ -70,46 +82,34 @@ export default class HelloWorld extends Vue {
   private mes!: string;
 
   /**
-   * 声明变量
-   * **/
-  isNumber:any = '123'   // data使用ts声明数据类型
-
-  /**
    * 监听变化
    * **/
   @Watch('isNumber', { immediate: true, deep: true })
-  onIsMemberChanged(val: String, oldVal: String) {
-    console.log('会员信息发生变化')
+  public onIsMemberChanged(val: String, oldVal: String) {
+    console.log('会员信息发生变化');
   }
 
   /**
    *  vue钩子函数
    * **/
-  mounted () {
-      console.log('dom加载完成')
-      setTimeout(()=>{
-          this.isNumber = '字符串'
-      },4000)
-  }
-
-  /**
-   * 计算属性
-   * **/
-  get computedMsg () {
-    return '计算属性 ' + this.msg
+  public mounted() {
+      console.log('dom加载完成');
+      setTimeout(() => {
+          this.isNumber = '字符串';
+      }, 4000);
   }
 
 
   /**
    *  事件
    * **/
-  popWindow () {
-      confirm('触发事件')
+  public popWindow() {
+      confirm('触发事件');
   }
 
   @Emit()
-  addItem(){
-      this.isNumber = Math.random().toString(36).substr(2)
+  public addItem() {
+      this.isNumber = Math.random().toString(36).substr(2);
   }
 
 }
