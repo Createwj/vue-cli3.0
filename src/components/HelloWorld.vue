@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h1>{{ mes | capitalize}}</h1>
+    <h1>{{ mes }}</h1>
     <h1 @click="addItem">派发{{ computedMsg }}</h1>
     <h2 @click="popWindow">{{isNumber}}</h2>
     <p>{{bar}}</p>
@@ -24,10 +24,10 @@ import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
    * 过滤器
    * **/
   filters: {
-      capitalize: function(e){
-          console.log('过滤器')
-          return e
-      }
+      // capitalize: function(e){
+      //     console.log('过滤器')
+      //     return e
+      // }
   },
   computed:{
     ...mapGetters([
