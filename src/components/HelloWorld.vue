@@ -116,7 +116,7 @@ export default class HelloWorld extends Vue {
 </script>
 <style scoped lang="stylus">
 .col
-    color: red
+    color: blue
 h3
   margin 40px 0 0
 
