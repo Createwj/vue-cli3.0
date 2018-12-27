@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 class="col">{{ msg }}</h1>
     <h1>{{ mes }}</h1>
     <h1 @click="addItem">派发{{ computedMsg }}</h1>
     <h2 @click="popWindow">{{isNumber}}</h2>
@@ -115,6 +115,8 @@ export default class HelloWorld extends Vue {
 }
 </script>
 <style scoped lang="stylus">
+.col
+    color: red
 h3
   margin 40px 0 0
 
