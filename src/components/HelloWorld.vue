@@ -59,10 +59,10 @@ import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 })
 export default class HelloWorld extends Vue {
    @Inject () foo!:string
-   @Inject () bar!:string
+   @Inject () bar!:string // 接受父组件 传递的参数 提升的组件之间的耦合性  并非良策s
 
   /**
-   *  接受父组件传递的参数
+   *   接受父组件传递的参数
    * **/
   @Prop()
   private msg!: string;
@@ -72,7 +72,7 @@ export default class HelloWorld extends Vue {
   /**
    * 声明变量
    * **/
-  isNumber:any = '123'
+  isNumber:any = '123'   // data使用ts声明数据类型
 
   /**
    * 监听变化
